@@ -29,4 +29,4 @@ let package = Package(
   ]
 )
 
-let packageVersion: Version = "1.0.0"
+let packageVersion: Version = "1.0.1"

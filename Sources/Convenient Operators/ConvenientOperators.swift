@@ -179,7 +179,7 @@ public func ~? <T>(left: (some Any)?, right: T?) -> T? {
 
 // MARK: - Optional Assign
 
-infix operator =?: NilCoalescingPrecedence
+infix operator =?: AssignmentPrecedence
 /// **optional assign** operator
 /// # Example
 /// ```

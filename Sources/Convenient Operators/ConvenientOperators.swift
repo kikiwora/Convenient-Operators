@@ -1,7 +1,5 @@
 //  Created by Roman Suvorov (kikiwora)
 
-import Foundation
-
 // MARK: - Perform After
 
 infix operator =>: MultiplicationPrecedence

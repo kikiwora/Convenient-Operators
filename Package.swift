@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "Convenient Operators",
   platforms: [
-    .iOS(.v13),
+    .iOS(.v15)
   ],
   products: [
     .library(
@@ -29,4 +29,4 @@ let package = Package(
   ]
 )
 
-let packageVersion: Version = "1.0.1"
+let packageVersion: Version = "1.0.2"

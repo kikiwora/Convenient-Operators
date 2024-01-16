@@ -261,9 +261,3 @@ final class ConvenientOperators_Tests: XCTestCase {
     )
   }
 }
-
-// MARK: - Helpers
-
-private extension String {
-  static var empty: Self { "" }
-}

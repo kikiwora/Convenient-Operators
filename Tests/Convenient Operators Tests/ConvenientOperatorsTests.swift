@@ -197,6 +197,30 @@ final class ConvenientOperators_Tests: XCTestCase {
     )
   }
 
+  func test_optionalAssignment_doesNothing_withNil_whenLeftIsOptional() {
+    let optionalNil: String? = nil
+
+    var result: String? = "Test"
+    result =? optionalNil
+
+    expect(result).to(
+      equal("Test"),
+      description: "=? operator shall not assign if argument is nil"
+    )
+  }
+
+  func test_optionalAssignment_doesAssign_nonNil_whenLeftIsOptional() {
+    let optionalNil: String? = "New"
+
+    var result: String? = "Test"
+    result =? optionalNil
+
+    expect(result).to(
+      equal("New"),
+      description: "=? operator shall assign if argument is not nil"
+    )
+  }
+
   func test_optionalConditional_returnsValue_whenBool_isTrue() {
     let condition = true
     let result = condition ~? "Value"

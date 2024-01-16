@@ -175,6 +175,22 @@ public func ~? <T>(left: (some Any)?, right: T?) -> T? {
   }
 }
 
+// TODO: Ensure this works properly when optional is expected
+// public func ~? <T>(left: (some Any)?, right: T?) -> T where T: Numeric {
+//    let right = right ?? .zero
+//
+//    switch left {
+//    case let .some(someLeft):
+//        if let checkup = someLeft as? Bool {
+//            return checkup ? right : .zero
+//        } else {
+//            return right
+//        }
+//    case .none:
+//        return .zero
+//    }
+// }
+
 // MARK: - Optional Assign
 
 infix operator =?: AssignmentPrecedence
@@ -193,6 +209,25 @@ infix operator =?: AssignmentPrecedence
 ///   - left: WIll be assigned **unwrapped** value of `right: Optional` if `right` is not `nil`
 ///   - right: `Optional` `object` to assign into `left` if not `nil`
 public func =? <T>(left: inout T, right: T?) {
+  guard let newLeft = right else { return }
+  left = newLeft
+}
+
+/// **optional assign** operator
+/// # Example
+/// ```
+/// // Instead of this
+/// var optionalText: String? = ...
+/// if let text = optionalText {
+///      label.text = text
+/// }
+/// // Do this
+/// label.text =? optionalText  // label.text will change only when optionalText is not nil
+/// ```
+/// - Parameters:
+///   - left: WIll be assigned **unwrapped** value of `right: Optional` if `right` is not `nil`
+///   - right: `Optional` `object` to assign into `left` if not `nil`
+public func =? <T>(left: inout T?, right: T?) {
   guard let newLeft = right else { return }
   left = newLeft
 }

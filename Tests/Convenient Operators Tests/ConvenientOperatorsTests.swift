@@ -4,11 +4,15 @@
 import Nimble
 import XCTest
 
+// MARK: - UILabelMock
+
 private class UILabelMock: NSObject {
   var text: String = .empty
 
   override init() {}
 }
+
+// MARK: - ConvenientOperators_Tests
 
 final class ConvenientOperators_Tests: XCTestCase {
   func test_performAfter_mutates_referenceTypes() {
